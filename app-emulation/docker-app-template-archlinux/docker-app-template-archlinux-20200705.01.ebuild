@@ -21,8 +21,10 @@ DEPEND="${RDEPEND}"
 
 #src_configure() {}
 
-src_compile() {
+#src_compile() {
+#	docker build -t ${PN}:${PV} template-archlinux || die "docker build failed"
+#}
+
+src_install() {
 	docker build -t ${PN}:${PV} template-archlinux || die "docker build failed"
 }
-
-#src_install() {}
