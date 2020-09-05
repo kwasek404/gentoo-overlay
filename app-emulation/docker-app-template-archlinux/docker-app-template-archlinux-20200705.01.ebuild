@@ -19,10 +19,6 @@ KEYWORDS="~amd64"
 RDEPEND="app-emulation/docker"
 DEPEND="${RDEPEND}"
 
-src_prepare() {
-	systemctl status docker || die "service docker is not started"
-}
-
 #src_configure() {}
 
 src_compile() {
