@@ -19,14 +19,14 @@ KEYWORDS="~amd64"
 RDEPEND="app-emulation/docker"
 DEPEND="${RDEPEND}"
 
+src_prepare() {
+	systemctl status docker || die "service docker is not started"
+}
+
 #src_configure() {}
 
 src_compile() {
-	docker build -t ${PN}:${PV} template-archlinux
-}
-
-src_test() {
-	docker image inspect ${PN}:${PV}
+	docker build -t ${PN}:${PV} template-archlinux || die "docker build failed"
 }
 
 #src_install() {}
