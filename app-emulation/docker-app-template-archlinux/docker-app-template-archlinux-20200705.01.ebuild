@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit git-2
+
 DESCRIPTION="Template for container apps"
 HOMEPAGE="https://github.com/kwasek404/docker-app-desktop"
 EGIT_REPO_URI="https://github.com/kwasek404/docker-app-desktop.git"
