@@ -28,7 +28,7 @@ src_install() {
 	dobin ${PN}
 	docker run --rm --entrypoint cat ${PN}:${PV} /usr/share/icons/hicolor/512x512/apps/spotify.png > ${PN}.png
 	doicon ${PN}.png
-	make_desktop_entry "/usr/bin/${PN}" ${PN} "${PN}.png" 'Audio;Music;Player;AudioVideo;'
+	make_desktop_entry "/usr/bin/${PN}" "${PN}.png" 'Audio;Music;Player;AudioVideo;'
 }
 
 pkg_postrm() {
