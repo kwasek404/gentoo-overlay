@@ -32,5 +32,5 @@ src_install() {
 }
 
 pkg_postrm() {
-	docker image rm ${PN}:${PV}
+	docker image rm "${PN}:${PV}"
 }
