@@ -14,7 +14,6 @@ EGIT_BRANCH=spotify
 LICENSE="LGPL-2+ GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
-#IUSE="filesystem"
 
 RDEPEND="app-emulation/docker"
 DEPEND="${RDEPEND}"
