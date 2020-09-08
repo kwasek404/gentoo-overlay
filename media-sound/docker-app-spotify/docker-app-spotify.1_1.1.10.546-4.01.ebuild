@@ -26,6 +26,7 @@ src_compile() {
 src_install() {
 	docker build -t ${PN}:${PV} spotify || die "docker build failed"
   cp -f execute.sh /usr/bin/${PN}
-  doicon spotify/spotify.png
-  make_desktop_entry ${PN} spotify.png 'Audio;Music;Player;AudioVideo;'
+  docker run --rm --entrypoint cat ${PN}:latest /usr/share/icons/hicolor/512x512/apps/spotify.png > ${PN}.png
+  doicon ${PN}.png
+  make_desktop_entry ${PN} ${PN}.png 'Audio;Music;Player;AudioVideo;'
 }
