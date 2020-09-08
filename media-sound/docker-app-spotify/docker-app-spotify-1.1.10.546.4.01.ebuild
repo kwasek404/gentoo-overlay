@@ -19,12 +19,12 @@ RDEPEND="app-emulation/docker-app-template-archlinux x11-apps/xhost"
 DEPEND="${RDEPEND} sys-apps/sed"
 
 src_compile() {
-	sed 's/\$1/spotify/g' -i execute.sh
+	sed "s/\$1/${PN}\:${PV}/g" -i execute.sh
+	mv execute.sh ${PN}
 }
 
 src_install() {
 	docker build -t ${PN}:${PV} spotify || die "docker build failed"
-	mv execute.sh ${PN}
 	dobin ${PN}
 	docker run --rm --entrypoint cat ${PN}:${PV} /usr/share/icons/hicolor/512x512/apps/spotify.png > ${PN}.png
 	doicon ${PN}.png
