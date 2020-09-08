@@ -30,3 +30,7 @@ src_install() {
 	doicon ${PN}.png
 	make_desktop_entry "/usr/bin/${PN}" ${PN} "${PN}.png" 'Audio;Music;Player;AudioVideo;'
 }
+
+pkg_postrm() {
+	docker image rm ${PN}:${PV}
+}
