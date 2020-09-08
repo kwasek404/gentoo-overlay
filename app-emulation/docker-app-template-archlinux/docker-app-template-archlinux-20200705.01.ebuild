@@ -25,5 +25,5 @@ DEPEND="${RDEPEND}"
 #}
 
 src_install() {
-	docker build -t ${PN}:${PV} template-archlinux || die "docker build failed"
+	docker build -t ${PN}:${PV} ${WORKDIR}/template-archlinux || die "docker build failed"
 }
