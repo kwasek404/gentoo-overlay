@@ -20,6 +20,7 @@ DEPEND="${RDEPEND} sys-apps/sed"
 
 src_compile() {
 	sed "s/\$1/${PN}\:${PV}/g" -i execute.sh
+	sed "s/\$2/spotify/g" -i execute.sh
 	mv execute.sh ${PN}
 }
 
